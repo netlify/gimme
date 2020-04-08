@@ -370,6 +370,7 @@ _env() {
 	#   Tools like `gimme` are the reason that GOROOT-in-env exists.
 
 	echo
+	set +x
 	if [[ "$(GOROOT="${1}" "${1}/bin/go" env GOHOSTOS)" == "${GIMME_OS}" ]]; then
 		echo 'unset GOOS;'
 	else
@@ -389,6 +390,7 @@ _env() {
 		echo 'go version >&2;'
 	fi
 	echo
+	set -x
 }
 
 # _env_alias "dir" "env-file"
